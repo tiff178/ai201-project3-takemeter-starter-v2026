@@ -51,63 +51,43 @@ whether you hit them:
 
 ---
 
-## 1.
+## 1. Overall accuracy at least 70%
 
-<!-- Your criterion. It must name a number. -->
+Overall classification accuracy on the held-out test set must be at least 0.70 (70%). 
 
-
-
-**Why this target:**
-
-
+**Why this target:** In a 3-class classification problem, random guessing yields ~ 33.3% accuracy. Since `r/badminton` post titles contain strong, distinct domain vocabulary (e.g., "racket", "string", "tension", "footwork", "backhand", "BWF"), a useful fine-tuned model should comfortably clear 70% overall accuracy.
 
 ---
 
-## 2.
+## 2. Per-label performance must achieve an F1 score of at least 60%
 
-<!-- Your criterion. -->
+Every individual label (`pro_tournaments`, `gear_equipment`, and `technique_training`) must achieve an F1 score of at least 0.60 (60%) on the held-out test set. 
 
-
-
-**Why this target:**
-
-
+**Why this target:** On `r/badminton`, gear and technique posts/questions are very common, while tournament threads fluctuate depending on the BWF calendar. Setting an F1 floor score of 0.60 across all classes ensures the model performs reliably across all three topics without neglecting minority classes.
 
 ---
 
-## 3.
+## 3. Label counts should be balanced - no more than 50% (100 posts) or less than 15% (30 posts) for a single label 
 
-<!-- Your criterion. -->
+No single label may represent more than 50% (100 posts) or less than 15% (30 posts) of the total 200 labeled posts in `labels.csv`. 
 
-
-
-**Why this target:**
-
-
+**Why this target:** Enforcing 15% (~ 30 posts minimum) guarantees sufficient training examples for `pro_tournaments` without allowing one high-volume category (like `gear_equipment` or `technique_training`) to dominate the training distribution.
 
 ---
 
-## 4.
+## 4. Consistency for labels 
 
-<!-- Your criterion. -->
+Agreement between independent annotators on the 30-sample reference dataset (`agreement.py`) must be at least 0.80 (80%). 
 
-
-
-**Why this target:**
-
-
+**Why this target:** The decision rule cleanly separates physical equipment choices (`gear_equipment`) from body movement and stroke mechanics (`technique_training`). Achieving >=80% agreement proves the taxonomy definitions and tie-breaker rules are concrete and reproducible.
 
 ---
 
-## 5.
+## 5. Model confidence is at least 85%
 
-<!-- Your criterion. -->
+For predictions made with a model confidence score of >= 0.85, prediction accuracy on those specific instances must be at least 0.85 (85%). 
 
-
-
-**Why this target:**
-
-
+**Why this target:** If the model is used for automated post tagging or flair assignment on `r/badminton`, high-confidence predictions must be highly accurate. A well-calibrated confidence threshold ensures high-certainty outputs are reliable.
 
 ---
 
