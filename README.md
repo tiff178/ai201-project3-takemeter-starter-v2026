@@ -77,48 +77,41 @@ Community: r/badminton
 
 ## The Dataset
 
-<!-- Where you collected from, how you labelled, your counts, and three hard
-     cases. -->
+**Where the posts came from:** Collected directly from the public post feed on `r/badminton` from Reddit 
 
-**Where the posts came from:** 
+**How I labelled them:** Labeled 20 posts cold by hand to establish a baseline (`cold`), labeled the remaining 180 posts using Gemini LLM Notebook including definitions for the three labels, decision rule + the source: `r/badminton` (`ai_prelabeled`), then read and correct any issues 
 
-**How I labelled them:** <!-- Cold first? Pre-labelled with AI and corrected?
-Say so plainly — the disclosure is required, not penalised. -->
-
-**Counts per label:**
+**Counts per label:** 
 
 | Label | Count | Share |
 |---|---|---|
-|  |  |  |
-|  |  |  |
-|  |  |  |
-| **Total** |  | 100% |
+| `gear_equipment` | 81 | 40.5% |
+| `technique_training` | 75 | 37.5% |
+| `pro_tournaments` | 44 | 22.0% |
+| **Total** | 200 | 100% |
 
 **Three hard cases**
 
-<!-- Any post that made you pause: what it was, which two labels it could have
-     been, and what you chose. These are worth more than the easy 190. -->
-
 **1.**
-> *The post:*
+> *The post: How to hold racket handle loosely until shuttle contact point*
 >
-> *Could have been:*
+> *Could have been: `gear_equipment` vs `technique_training`*
 >
-> *I chose, because:*
+> *I chose `technique_training` because although the post title mentions "racket handle," the user is actually asking about grip relaxation, hand control, and stroke timing rather than physical equipment.*
 
 **2.**
-> *The post:*
+> *The post: Sanding the frame to make it lighter*
 >
-> *Could have been:*
+> *Could have been: `gear_equipment` vs `technique_training`*
 >
-> *I chose, because:*
+> *I chose `gear_equipment` because while "sanding" is an action, it describes a DIY physical modification to alter the badminton racket specifications rather than an on-court playing stroke or movement.*
 
 **3.**
-> *The post:*
+> *The post: What's the correct etiquette regarding breaking racket?*
 >
-> *Could have been:*
+> *Could have been: `gear_equipment` vs `technique_training`*
 >
-> *I chose, because:*
+> *I chose `gear_equipment` because breaking a racket involves physical equipment damage rather than intentional badminton stroke or training technique.* 
 
 ---
 
