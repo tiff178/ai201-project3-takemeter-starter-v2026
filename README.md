@@ -23,66 +23,55 @@
 
 ---
 
-<!-- ─────────────────────────────────────────────────────────────────────────
-     HOW TO USE THIS FILE
-
-     Unit 5 asks for the first five sections. Unit 6 adds the five below them.
-
-     Everything is pasted as TEXT. No screenshots, no images.
-
-     ⚠️ The confusion matrix especially. The notebook prints one as a markdown
-     table, ready to copy. A screenshot of a matrix earns nothing. Paste the
-     table.
-     ───────────────────────────────────────────────────────────────────────── -->
-
-<!-- ═══════════════════════ UNIT 5 — THE BUILD ═══════════════════════ -->
+# Unit 5
 
 ## What This Does
 
 <!-- Your community, and what your classifier sorts posts into. Three or four
      sentences. -->
 
+Community: r/badminton
 
 
 ---
 
 ## Label Taxonomy
 
-<!-- Each label: a one-sentence definition and two real examples from your
-     reading. Then your decision rule for the hardest boundary.
+### `pro_tournaments`
 
-     The decision rule is worth a point on its own and it's the thing most
-     people leave out. Every taxonomy has a hardest boundary. Name yours. -->
+**Definition:** Posts discussing professional BWF players, international tournament results, match threads, or player news. 
 
-### `label_one`
-
-**Definition:**
-
-**Example 1:**
->
+**Example 1:** 
+> If An Se-young played WD with Kim Ga-eun, what do you think would be their world ranking after a year?
 
 **Example 2:**
->
+> 2019 Kento Momota vs 2021 Lee Zii Jia
 
-### `label_two`
+### `gear_equipment`
 
-**Definition:**
+**Definition:** Posts seeking or providing advice, reviews, or specifications regarding badminton equipment, including racquets/rackets, shoes, or shuttlecocks. 
 
 **Example 1:**
->
+> Equipment guide for Doubles players (1) The Racket
 
 **Example 2:**
->
+> Victor Auraspeed 99 Review: no longer a 'speed' racket
+
+### `technique_training`
+
+**Definition:** Posts asking for or sharing guidance on stroke mechanics, footwork, tactics, physical conditioning, or court positioning. 
+
+**Example 1:**
+> How do I deal with high serves and clears?
+
+**Example 2:**
+> Not a beginner but came back to badminton after break of 4-5 years and want to know the right technique
 
 ### The hardest boundary
 
-**Which two labels:**
+**Which two labels:** `gear_equipment` and `technique_training`
 
-**The decision rule I used every time:**
-<!-- e.g. "If the post names a specific checkable fact, it's `analysis`, even
-     if the tone is heated." -->
-
-
+**The decision rule I used every time:** If a post's primary focus is selecting, comparing, reviewing, or modifying physical equipment (racquets/rackets, shoes, or shuttlecocks), classify it as `gear_equipment`. If the primary focus is on body movement, stroke execution, footwork, tactics, or drills, classify it as `technique_training`, even if specific equipment or racquets/rackets are mentioned in passing.
 
 ---
 
@@ -91,7 +80,7 @@
 <!-- Where you collected from, how you labelled, your counts, and three hard
      cases. -->
 
-**Where the posts came from:**
+**Where the posts came from:** 
 
 **How I labelled them:** <!-- Cold first? Pre-labelled with AI and corrected?
 Say so plainly — the disclosure is required, not penalised. -->
