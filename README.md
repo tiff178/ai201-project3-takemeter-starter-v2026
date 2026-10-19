@@ -117,19 +117,25 @@ Community: r/badminton
 
 ## The Training Run
 
-<!-- Your starting model, your settings, and anything you changed and why. -->
+**Base model:** distilbert-base-uncased
 
-**Base model:**
+**Settings:** seed 42, 3 epochs, lr 2e-05, batch 16
 
-**Settings:** <!-- epochs, learning rate, batch size, seed -->
+**Anything I changed from the defaults, and why:** N/A
 
-**Anything I changed from the defaults, and why:**
+**Split sizes:** 70% train (139), 15% validation (31), 15% test (30)
 
-**Split sizes:** <!-- train / val / test, and per-label counts in the test
-split. If a label had fewer than about 8 in test, say so — it explains a lot
-of next unit's variance. -->
+>                       train  val  test
+> label                               
+> pro_tournaments        30     7     7
+> gear_equipment         57    12    12
+> technique_training     52    12    11
 
+- `pro_tournaments` has only 7 examples in the test split. 
 
+`results.json`: 
+> device: cpu  (CPU)  
+> torch:  2.14.1+cpu
 
 ---
 
