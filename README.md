@@ -27,11 +27,7 @@
 
 ## What This Does
 
-<!-- Your community, and what your classifier sorts posts into. Three or four
-     sentences. -->
-
-Community: r/badminton
-
+TakeMeter looks at posts in the `r/badminton` public community forum. Each post is sorted into one of three labels (`pro_tournaments`, `gear_equipment`, `technique_training`). Across the `r/badminton` community forum, users discuss a range of topics from Badminton World Federation (BWF) professional players/tournaments to reviews on badminton equipment and advice on badminton techniques. Based on the given text, TakeMeter classifies and sort posts by labels for the badminton community. 
 
 ---
 
@@ -141,26 +137,19 @@ Community: r/badminton
 
 ## How I Used AI
 
-<!-- Two specific moments — what you asked, what came back, what you changed.
+**Moment 1** 
 
-     ⚠️ Plus disclosure of any pre-labelling. If you had a model pre-label a
-     batch and then read and corrected every one, say that. It's an allowed
-     workflow and disclosing it costs you nothing. Not disclosing it is the
-     problem. -->
-
-**Moment 1**
-
-- *What I asked for:*
-- *What came back:*
-- *What I changed:*
+- *What I asked for:* Brainstorming session for the criterion into Claude - "Here are five acceptance criteria with targets, for a text classifier I have not trained yet. For each target, give me one reason it might turn out too easy and one reason it might turn out too hard. Don't tell me which is more likely and don't suggest different numbers..."
+- *What came back:* Feedback on whether it would be too easy or too hard; Better understand what my criterion defines
+- *What I changed:* Most criterion were fine, just took into consideration whether I needed to be more specific or not. 
 
 **Moment 2**
 
-- *What I asked for:*
-- *What came back:*
-- *What I changed:*
+- *What I asked for:* In Milestone 5, Section 2 showed two parts with [FIX ME] lines. This section checks my data and prints anything that would break the run or quietly ruin it. As it showed that I needed to look over my `labels.csv` data, I asked Claude to debug any issues within my data that it can spot.
+- *What came back:* 4 lines in my `labels.csv` data had an extra comma (,) in the text
+- *What I changed:* I added quotations (" ") to those 4 lines surrounding the text, so it wouldn't mess up the labels and note within the `labels.csv` data. This is necessary to fix before splitting the data. 
 
-**Pre-labelling disclosure:**
+**Pre-labelling disclosure:** I labeled 20 posts manually and had AI (Gemini LLM Notebook) help extract the text from the posts and label the rest following the parameters. 
 
 <!-- ═══════════════════════ UNIT 6 — THE TEST ═══════════════════════
 
