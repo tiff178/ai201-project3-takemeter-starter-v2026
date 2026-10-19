@@ -121,12 +121,6 @@ TakeMeter looks at posts in the `r/badminton` public community forum. Each post 
 
 **Split sizes:** 70% train (139), 15% validation (31), 15% test (30)
 
->                       train  val  test
-> label                               
-> pro_tournaments        30     7     7
-> gear_equipment         57    12    12
-> technique_training     52    12    11
-
 - `pro_tournaments` has only 7 examples in the test split. 
 
 `results.json`: 
