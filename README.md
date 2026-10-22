@@ -145,34 +145,22 @@ TakeMeter looks at posts in the `r/badminton` public community forum. Each post 
 
 **Pre-labelling disclosure:** I labeled 20 posts manually and had AI (Gemini LLM Notebook) help extract the text from the posts and label the rest following the parameters. 
 
-<!-- ═══════════════════════ UNIT 6 — THE TEST ═══════════════════════
-
-     Don't fill these in during unit 5.
-     ═══════════════════════════════════════════════════════════════════ -->
-
 ---
+# Unit 6
 
 ## Baseline vs. Trained
 
-<!-- Both models on the same posts. `python baseline.py --trained results.json`
-     prints this table for you. -->
-
 | Measure | Baseline | Trained | Difference |
 |---|---|---|---|
-| Overall accuracy |  |  |  |
-| Macro F1 |  |  |  |
-| F1 — `label_one` |  |  |  |
-| F1 — `label_two` |  |  |  |
+| Overall accuracy | 0.867 | 0.733 | -0.133 |
+| Macro F1 | 0.859 | 0.711 | -0.148 |
+| F1 — `gear_equipment` | 0.923 | 0.733 | -0.190 |
+| F1 — `pro_tournaments` | 0.875 | 0.600 | -0.275 |
+| F1 — `technique_training` | 0.778 | 0.800 | +0.022 |
 
-**What I predicted before I looked:**
-<!-- Milestone 1 asks you to write this BEFORE seeing the trained numbers. A
-     prediction made afterwards isn't one. -->
+**What I predicted before I looked:** My fine-tuned model would outperform the zero-shot baseline model, by 5-10% in overall accuracy: For `pro_tournaments`, I would expect it to score relatively high on both models because BWF players and official event titles are distinct proper nouns that LLMs can easily identify even without fine-tuning. As for `gear_equipment` and `technique_training`, fine-tuning makes a big difference as the zero-shot baseline model will likely get confused by boundary posts mentioning both equipment and technique training.
 
-**What the gap actually means:**
-<!-- If the baseline matched your trained model, your fine-tuning added
-     nothing — and that is a real finding, not a failure. Say it plainly. -->
-
-
+**What the gap actually means:** My initial prediction was incorrect as the zero-shot baseline model significantly outperformed the fine-tuned model overall (86.7% vs 73.3%), beating it across two out of three labels. This happened because a zero-shot baseline model possesses extensive world knowledge about badminton and when paired with clear label definitions, it categorized posts very effectively. My fine-tuned model is likely overfit given the small dataset of training examples. However, fine-tuning did slightly improve performance on `technique_training`, showing that training data did help the model learn nuance in badminton technique training posts. 
 
 ---
 
