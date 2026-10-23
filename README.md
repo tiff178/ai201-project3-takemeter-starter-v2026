@@ -168,34 +168,33 @@ Without the label definitions (bare label names), the zero-shot baseline model d
 
 ## Run Log — Before
 
-<!-- Five criteria across three seeds. The notebook's section 6 prints the
-     spread table; the Target and Verdict columns are yours. -->
-
 | Criterion | Target | Seed 42 | Seed 7 | Seed 2024 | Verdict |
 |---|---|---|---|---|---|
-| 1.  |  |  |  |  |  |
-| 2.  |  |  |  |  |  |
-| 3.  |  |  |  |  |  |
-| 4.  |  |  |  |  |  |
-| 5.  |  |  |  |  |  |
+| 1. Overall accuracy at least 70% | ≥ 0.70 | 0.733 | 0.667 | 0.833 | MISSED | 
+| 2. Per-label performance must achieve an F1 score of at least 60% (`pro_tournaments`) | ≥ 0.60 | 0.600 | 0.000 | 0.727 | MISSED |
+| 3. Label counts should be balanced | 15% - 50% | 22.0% - 40.5% | 22.0% - 40.5% | 22.0% - 40.5% | MET |
+| 4. Consistency for labels  | ≥ 0.80 |  |  |  | [Pending Milestone 3] | 
+| 5. Model confidence is at least 85% | ≥ 0.85 | 0.900 | 1.000 | 1.000 | MET |
+
+### Metrics Spread Across Seeds 
+
+| Measure | Seed 42 | Seed 7 | Seed 2024 | Spread |
+|---|---|---|---|---|
+| Overall accuracy | 0.733 | 0.667 | 0.833 | 0.167 |
+| Macro F1 | 0.711 | 0.508 | 0.817 | 0.309 |
+| F1 — `pro_tournaments` | 0.600 | 0.000 | 0.727 | 0.727 |
+| F1 — `gear_equipment` | 0.733 | 0.690 | 0.815 | 0.125 |
+| F1 — `technique_training` | 0.800 | 0.833 | 0.909 | 0.109 |
 
 ### Confusion matrix
 
-<!-- ⚠️ TYPED AS A MARKDOWN TABLE. The notebook prints one ready to paste.
-     An image of a matrix earns nothing. -->
-
-| true \ predicted |  |  |  |
+| true \ predicted | pro_tournaments | gear_equipment | technique_training |
 |---|---|---|---|
-| **** |  |  |  |
-| **** |  |  |  |
-| **** |  |  |  |
+| **pro_tournaments** | 3 | 4 | 0 |
+| **gear_equipment** | 0 | 11 | 1 |
+| **technique_training** | 0 | 3 | 8 |
 
-**My biggest off-diagonal number, and what it means:**
-<!-- Not "the model made mistakes" — WHICH boundary it didn't learn, and which
-     direction. "7 real analysis posts were called hot_take and only 3 went the
-     other way" is a direction, not just an error rate. -->
-
-
+**My biggest off-diagonal number, and what it means:** 4 real `pro_tournaments` posts were called `gear_equipment` and 0 real `gear_equipment` posts were called `pro_tournaments`. This one-sided confusion means the model developed a strong bias toward `gear_equipment`. A major contributing factor is likely the class imbalance in training data, with `gear_equipment` being the largest class (81 posts), nearly double the size of `pro_tournaments` (44 posts). As a result, when the model encounters ambiguous vocabulary or brand names mentioned in a `pro_tournament` context, it would more frequently default to the `gear_equipment` label. 
 
 ---
 
