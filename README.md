@@ -172,8 +172,8 @@ Without the label definitions (bare label names), the zero-shot baseline model d
 |---|---|---|---|---|---|
 | 1. Overall accuracy at least 70% | ≥ 0.70 | 0.733 | 0.667 | 0.833 | MISSED | 
 | 2. Per-label performance must achieve an F1 score of at least 60% (`pro_tournaments`) | ≥ 0.60 | 0.600 | 0.000 | 0.727 | MISSED |
-| 3. Label counts should be balanced | 15% - 50% | 22.0% - 40.5% | 22.0% - 40.5% | 22.0% - 40.5% | MET |
-| 4. Consistency for labels  | ≥ 0.80 |  |  |  | [Pending Milestone 3] | 
+| 3. Label counts should be balanced | 15%-50% | 22.0%-40.5% | 22.0%-40.5% | 22.0%-40.5% | MET |
+| 4. Consistency for labels | ≥ 0.80 | 0.933 | 0.933 | 0.933 | MET | 
 | 5. Model confidence is at least 85% | ≥ 0.85 | 0.900 | 1.000 | 1.000 | MET |
 
 ### Metrics Spread Across Seeds 
@@ -200,9 +200,6 @@ Without the label definitions (bare label names), the zero-shot baseline model d
 
 ## Verdicts and Diagnoses
 
-<!-- MET or MISSED against LAST UNIT's target. The target has to hold across
-     all three seeds, not turn up sometimes. -->
-
 | # | Criterion | Target | Verdict | How I decided |
 |---|---|---|---|---|
 | 1 |  |  |  |  |
@@ -228,55 +225,29 @@ Without the label definitions (bare label names), the zero-shot baseline model d
 
 ## Agreement Report
 
-<!-- Your rate against the staff set, and every disagreement adjudicated.
-
-     Remember you labelled these 30 under the STAFF taxonomy in
-     data/staff_taxonomy.md, not your own — so every argument below is made
-     from those definitions and those decision rules. -->
-
-**Agreement rate:** ___ / 30 = ___%
-
-<!-- Nobody grades this number. A 60% who argues every disagreement from the
-     stated rules beats a 95% who wrote "staff was right" nine times. Several
-     of the 30 were chosen because they're genuinely ambiguous — you should be
-     winning some of these. -->
+**Agreement rate:** 28 / 30 = 93%
 
 **Disagreements**
 
-<!-- Three lines each: the post, both labels, and who you think is right and
-     why — grounded in the staff definitions you were both applying.
-
-     Then sort each into one of three piles:
-       (a) the rule covered it and I applied it loosely → a consistency problem
-       (b) the rule genuinely doesn't say               → a gap in the definitions
-       (c) the rule is ambiguous here and my reading is defensible → argue it.
-           This is a legitimate win.
-
-     Pile (a) is the one that matters most for your diagnosis: if you applied a
-     written rule two different ways on 30 posts, that is direct evidence about
-     what you did across your own 200. -->
-
 **1.**
-> *The post:*
+> *The post: Three of us ran the same session on the same day, different shoes, within 10 seconds of each other over 5 miles. I'm not saying shoes do nothing, but whatever they do was smaller than the noise between three people.*
 >
-> *Staff said / I said:*
+> *Staff said / I said: Staff said `analysis`, I said `hot_take`.*
 >
-> *My call, and why:*
+> *My call, and why: The post sits right on the boundary because it contains checkable metrics (3 runners, 10 seconds, 5 miles); however, it comes from an informal run between three friends. Staff credited the observation as tiny, checkable sample. Under Decision Rule #1, a fact must be load-bearing - a casual group run lacking scientific controls or statistical validity cannot dismiss the impact of the type of shoes. Without true experimental rigor, this is essentially an unsupported opinion (`hot_take`) with checkable metrics included.*
 >
-> *Which pile:*
+> *Which pile: (c) The rule is ambiguous here and my reading is defensible.* 
 
 **2.**
-> *The post:*
+> *The post: Times are down about 3% since the shoe rules changed, so obviously the shoes are the whole story and the sport has a problem.*
 >
-> *Staff said / I said:*
+> *Staff said / I said: Staff said `hot_take`, I said `analysis`.*
 >
-> *My call, and why:*
+> *My call, and why: The post is ambiguous at first glance because it mentions a specific quantitative metric (3% drop) and a historical event (shoe rules changed), which led me to label this post as `analysis`. Based on Decision Rule #1, a fact must be load-bearing rather than a decorative flourish. The post leaps from an approximate 3% drop straight to an unsupported claim ("so obviously the shoes are the whole story"). Staff is right, and my call was a consistency slip by labeling based on the presence of a number instead of checking whether the number was actually carried the argument.*
 >
-> *Which pile:*
+> *Which pile: (a) The rule covered it and I applied it loosely - a consistency problem.*
 
-**What the pattern in my disagreements tells me:**
-
-
+**What the pattern in my disagreements tells me:** My disagreements reveal a pattern of reacting to surface-level cues rather than evaluating load-bearing intent—such as assuming the mere presence of a number automatically makes a post `analysis`. When boundaries felt ambiguous, I tended to apply an overly strict evidence threshold. This likely carried over to my badminton dataset, where posts mentioning gear brands or racket specifications may have been reflexively categorized as `gear_equipment`, even when the primary subject was tournaments or technique. 
 
 ---
 
