@@ -202,24 +202,18 @@ Without the label definitions (bare label names), the zero-shot baseline model d
 
 | # | Criterion | Target | Verdict | How I decided |
 |---|---|---|---|---|
-| 1 |  |  |  |  |
-| 2 |  |  |  |  |
-| 3 |  |  |  |  |
-| 4 |  |  |  |  |
-| 5 |  |  |  |  |
+| 1 | Overall accuracy at least 70% | ≥ 0.70 | MISSED | Seeds 42 (73%) and 2024 (83%) met the threshold, but Seed 7 achieved an overall accuracy of 67%. The target must hold at least 70% overall accuracy across all trials, so this counts as a miss. |
+| 2 | Per-label performance must achieve an F1 score of at least 60% (`pro_tournaments`) | ≥ 0.60 | MISSED | Every label must achieve an F1 score of at least 60% across all trials. The other two labels `gear_equipment` and `technique_training` achieved an F1 score of at least 60% across all trials. However, `pro_tournaments` did not across all trials. While Seeds 42 and 2024 met the target, on Seed 7 `pro_tournaments` dropped to an F1 of 0.000. |
+| 3 | Label counts should be balanced | 15%-50% | MET | The smallest label count was 22.0% and the largest label count was 40.5%, remaining within the 15%-50% boundary. |
+| 4 | Consistency for labels | ≥ 0.80 | MET | Achieved an agreement rate of 93% (28/30) against the staff benchmark set. |
+| 5 | Model confidence is at least 85% | ≥ 0.85 | MET | High-confidence predictions scored 0.900 (Seed 42), 1.000 (Seed 7), and 1.000 (Seed 2024), beating the 0.85 target on all trials. |
 
 **Diagnoses**
+- Criterion 1: Overall accuracy at least 70% 
+This miss was driven by dataset instability across data splits rather than a lack of model capacity, as shown by accuracy moving 0.167 across seeds, from 66.7% on Seed 7 up to 83.3% on Seed 2024. As this swing is well over 10 points, it indicates that the dataset is too small or lopsided to produce a stable evaluation, even though Seed 2024 proves it can reach the target. As shown by my agreement report under Pile (a), I tended to label based on surface-level cues rather than evaluating load-bearing intent. This introduced boundary noise across the dataset, causing overall accuracy to dip below the threshold whenever ambiguous, boundary-heavy posts were concentrated into Seed 7's test fold.
 
-<!-- For each miss: the cause, and how you know. The four common causes are:
-     too few examples for a label, a boundary you applied inconsistently, a
-     genuinely hard label pair, and a task the model can't reach from this
-     much data.
-
-     ⚠️ Use your agreement report as evidence. It is the only instrument you
-     have that can tell a LABELLING problem from a MODEL problem, and this
-     section is graded on whether you used it that way. -->
-
-
+- Criterion 2: Per-label performance must achieve an F1 score of at least 60% (`pro_tournaments`)
+This miss was likely caused by severe class sparsity combined with an inconsistent decision boundary against `gear_equipment`. `pro_tournaments` had the smallest label count at 22.0% (44 posts) roughly half the size of `gear_equipment`, leaving only 7 examples in the test split. The confusion matrix confirmed this, showing that missed tournament posts were overwhelmingly misclassified as `gear_equipment`. This likely mirrors the surface-level cue identified in my agreement report under Pile (a), where posts discussing tournament matches that mentioned racket brands were reflexively labeled as `gear_equipment`. With only 7 test examples, missing these boundary posts gave the model zero margin for error, causing Seed 7's F1 score to drop to 0.000 (whereas Seed 2024 reached 0.727 on a cleaner split).
 
 ---
 
