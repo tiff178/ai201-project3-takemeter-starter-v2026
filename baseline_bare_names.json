@@ -1,0 +1,184 @@
+{
+  "model": "facebook/bart-large-mnli",
+  "n": 30,
+  "seed": 42,
+  "held_out": true,
+  "used_definitions": false,
+  "scores": {
+    "n": 30,
+    "accuracy": 0.7333333333333333,
+    "f1_macro": 0.7354700854700854,
+    "per_label": {
+      "gear_equipment": {
+        "precision": 0.6,
+        "recall": 1.0,
+        "f1": 0.7499999999999999,
+        "support": 12
+      },
+      "pro_tournaments": {
+        "precision": 1.0,
+        "recall": 0.8571428571428571,
+        "f1": 0.923076923076923,
+        "support": 7
+      },
+      "technique_training": {
+        "precision": 1.0,
+        "recall": 0.36363636363636365,
+        "f1": 0.5333333333333333,
+        "support": 11
+      }
+    }
+  },
+  "predictions": [
+    {
+      "text": "Is 5U racket too light for generating steep smash angles?",
+      "gold": "gear_equipment",
+      "predicted": "gear_equipment"
+    },
+    {
+      "text": "Korea Open 2026 Men's Singles Final Thread",
+      "gold": "pro_tournaments",
+      "predicted": "pro_tournaments"
+    },
+    {
+      "text": "Does racket weight distribution really affect wrist injury risk?",
+      "gold": "gear_equipment",
+      "predicted": "gear_equipment"
+    },
+    {
+      "text": "When i smash what should i do with my left hand",
+      "gold": "technique_training",
+      "predicted": "technique_training"
+    },
+    {
+      "text": "How do I switch quickly between forehand and backhand grips?",
+      "gold": "technique_training",
+      "predicted": "gear_equipment"
+    },
+    {
+      "text": "Are carbon fiber shoe shanks noticeable during quick direction changes?",
+      "gold": "gear_equipment",
+      "predicted": "gear_equipment"
+    },
+    {
+      "text": "Drills to master the bevel grip for tight net spinning kills",
+      "gold": "technique_training",
+      "predicted": "technique_training"
+    },
+    {
+      "text": "Resistance band exercises for wrist and forearm badminton conditioning",
+      "gold": "technique_training",
+      "predicted": "gear_equipment"
+    },
+    {
+      "text": "Shadow footwork pattern routines for 6-corner court coverage",
+      "gold": "technique_training",
+      "predicted": "technique_training"
+    },
+    {
+      "text": "Mixed doubles positioning: where should front player stand during defense?",
+      "gold": "technique_training",
+      "predicted": "gear_equipment"
+    },
+    {
+      "text": "Why do my strings keep snapping near the top frame grommets?",
+      "gold": "gear_equipment",
+      "predicted": "gear_equipment"
+    },
+    {
+      "text": "Grip tape recommendation: Towel grip vs PU replacement grip for sweaty hands",
+      "gold": "gear_equipment",
+      "predicted": "gear_equipment"
+    },
+    {
+      "text": "Multi-shuttle feeding drills for improving net kill reaction time",
+      "gold": "technique_training",
+      "predicted": "gear_equipment"
+    },
+    {
+      "text": "How much weight does an overgrip add to the handle balance?",
+      "gold": "gear_equipment",
+      "predicted": "gear_equipment"
+    },
+    {
+      "text": "How to re-grip a wooden handle after removing original factory leather",
+      "gold": "gear_equipment",
+      "predicted": "gear_equipment"
+    },
+    {
+      "text": "Have you guys switched to 15 points? If so, what are your thoughts? And have you changed strategy and tactics?",
+      "gold": "technique_training",
+      "predicted": "gear_equipment"
+    },
+    {
+      "text": "Malaysia Open 2026 Day 3 Results & Discussion Thread",
+      "gold": "pro_tournaments",
+      "predicted": "pro_tournaments"
+    },
+    {
+      "text": "Doubles rotation when switching from defensive stance to attacking formation",
+      "gold": "technique_training",
+      "predicted": "gear_equipment"
+    },
+    {
+      "text": "How many badminton rackets do you usually carry in your bag for tournaments?",
+      "gold": "gear_equipment",
+      "predicted": "gear_equipment"
+    },
+    {
+      "text": "Jonatan Christie winning streak in BWF Asian swing tournaments",
+      "gold": "pro_tournaments",
+      "predicted": "pro_tournaments"
+    },
+    {
+      "text": "BWF Hawk-Eye electronic line call system accuracy debate after main court error",
+      "gold": "pro_tournaments",
+      "predicted": "gear_equipment"
+    },
+    {
+      "text": "Yonex Astrox 77 Pro review - the best user-friendly medium stiff racket?",
+      "gold": "gear_equipment",
+      "predicted": "gear_equipment"
+    },
+    {
+      "text": "Split step timing drills to improve explosive court movement",
+      "gold": "technique_training",
+      "predicted": "technique_training"
+    },
+    {
+      "text": "How do you see Lee So-hee\u2019s career after the Asian Games, and can she stay competitive until LA28?",
+      "gold": "pro_tournaments",
+      "predicted": "pro_tournaments"
+    },
+    {
+      "text": "Shi Yuqi vs Viktor Axelsen - BWF World Tour Finals semifinal analysis",
+      "gold": "pro_tournaments",
+      "predicted": "pro_tournaments"
+    },
+    {
+      "text": "Mizuno Wave Claw 2 vs Yonex Power Cushion 65Z3 shoe comparison",
+      "gold": "gear_equipment",
+      "predicted": "gear_equipment"
+    },
+    {
+      "text": "Victor Auraspeed 99 Review: no longer a 'speed' racket",
+      "gold": "gear_equipment",
+      "predicted": "gear_equipment"
+    },
+    {
+      "text": "How to lift shuttle high and deep when caught under heavy net pressure",
+      "gold": "technique_training",
+      "predicted": "gear_equipment"
+    },
+    {
+      "text": "Liang Wei Keng / Wang Chang vs Kang Min Hyuk / Seo Seung Jae rivalry breakdown",
+      "gold": "pro_tournaments",
+      "predicted": "pro_tournaments"
+    },
+    {
+      "text": "Sanding the frame to make it lighter",
+      "gold": "gear_equipment",
+      "predicted": "gear_equipment"
+    }
+  ]
+}

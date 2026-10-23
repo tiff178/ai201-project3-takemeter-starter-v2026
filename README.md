@@ -162,6 +162,8 @@ TakeMeter looks at posts in the `r/badminton` public community forum. Each post 
 
 **What the gap actually means:** My initial prediction was incorrect as the zero-shot baseline model significantly outperformed the fine-tuned model overall (86.7% vs 73.3%), beating it across two out of three labels. This happened because a zero-shot baseline model possesses extensive world knowledge about badminton and when paired with clear label definitions, it categorized posts very effectively. My fine-tuned model is likely overfit given the small dataset of training examples. However, fine-tuning did slightly improve performance on `technique_training`, showing that training data did help the model learn nuance in badminton technique training posts. 
 
+Without the label definitions (bare label names), the zero-shot baseline model doesn't perform as well overall (`baseline_bare_names.json`). The reported baseline used is with the label definitions. 
+
 ---
 
 ## Run Log — Before
