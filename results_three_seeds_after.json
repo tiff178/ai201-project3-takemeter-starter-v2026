@@ -1,0 +1,164 @@
+[
+  {
+    "seed": 42,
+    "n_test": 34,
+    "accuracy": 0.8823529411764706,
+    "f1_macro": 0.8850815850815851,
+    "per_label": {
+      "pro_tournaments": {
+        "precision": 1.0,
+        "recall": 0.8181818181818182,
+        "f1": 0.9,
+        "support": 11
+      },
+      "gear_equipment": {
+        "precision": 0.7857142857142857,
+        "recall": 0.9166666666666666,
+        "f1": 0.8461538461538461,
+        "support": 12
+      },
+      "technique_training": {
+        "precision": 0.9090909090909091,
+        "recall": 0.9090909090909091,
+        "f1": 0.9090909090909091,
+        "support": 11
+      }
+    },
+    "confusion": {
+      "pro_tournaments": {
+        "pro_tournaments": 9,
+        "gear_equipment": 2,
+        "technique_training": 0
+      },
+      "gear_equipment": {
+        "pro_tournaments": 0,
+        "gear_equipment": 11,
+        "technique_training": 1
+      },
+      "technique_training": {
+        "pro_tournaments": 0,
+        "gear_equipment": 1,
+        "technique_training": 10
+      }
+    },
+    "confidence": {
+      "mean_when_right": 0.4466269910335541,
+      "mean_when_wrong": 0.40272459387779236,
+      "accuracy_most_confident_third": 0.9090909090909091,
+      "accuracy_least_confident_third": 0.7272727272727273,
+      "n_per_third": 11
+    },
+    "device": "cpu",
+    "device_name": "CPU",
+    "torch_version": "2.14.1+cpu",
+    "max_length": 128
+  },
+  {
+    "seed": 7,
+    "n_test": 34,
+    "accuracy": 0.9117647058823529,
+    "f1_macro": 0.9116161616161617,
+    "per_label": {
+      "pro_tournaments": {
+        "precision": 0.9090909090909091,
+        "recall": 0.9090909090909091,
+        "f1": 0.9090909090909091,
+        "support": 11
+      },
+      "gear_equipment": {
+        "precision": 1.0,
+        "recall": 0.8333333333333334,
+        "f1": 0.9090909090909091,
+        "support": 12
+      },
+      "technique_training": {
+        "precision": 0.8461538461538461,
+        "recall": 1.0,
+        "f1": 0.9166666666666666,
+        "support": 11
+      }
+    },
+    "confusion": {
+      "pro_tournaments": {
+        "pro_tournaments": 10,
+        "gear_equipment": 0,
+        "technique_training": 1
+      },
+      "gear_equipment": {
+        "pro_tournaments": 1,
+        "gear_equipment": 10,
+        "technique_training": 1
+      },
+      "technique_training": {
+        "pro_tournaments": 0,
+        "gear_equipment": 0,
+        "technique_training": 11
+      }
+    },
+    "confidence": {
+      "mean_when_right": 0.467384934425354,
+      "mean_when_wrong": 0.375467449426651,
+      "accuracy_most_confident_third": 1.0,
+      "accuracy_least_confident_third": 0.7272727272727273,
+      "n_per_third": 11
+    },
+    "device": "cpu",
+    "device_name": "CPU",
+    "torch_version": "2.14.1+cpu",
+    "max_length": 128
+  },
+  {
+    "seed": 2024,
+    "n_test": 34,
+    "accuracy": 0.9117647058823529,
+    "f1_macro": 0.9117259552042162,
+    "per_label": {
+      "pro_tournaments": {
+        "precision": 0.9090909090909091,
+        "recall": 0.9090909090909091,
+        "f1": 0.9090909090909091,
+        "support": 11
+      },
+      "gear_equipment": {
+        "precision": 0.9090909090909091,
+        "recall": 0.8333333333333334,
+        "f1": 0.8695652173913043,
+        "support": 12
+      },
+      "technique_training": {
+        "precision": 0.9166666666666666,
+        "recall": 1.0,
+        "f1": 0.9565217391304348,
+        "support": 11
+      }
+    },
+    "confusion": {
+      "pro_tournaments": {
+        "pro_tournaments": 10,
+        "gear_equipment": 1,
+        "technique_training": 0
+      },
+      "gear_equipment": {
+        "pro_tournaments": 1,
+        "gear_equipment": 10,
+        "technique_training": 1
+      },
+      "technique_training": {
+        "pro_tournaments": 0,
+        "gear_equipment": 0,
+        "technique_training": 11
+      }
+    },
+    "confidence": {
+      "mean_when_right": 0.44555190205574036,
+      "mean_when_wrong": 0.40728533267974854,
+      "accuracy_most_confident_third": 1.0,
+      "accuracy_least_confident_third": 0.8181818181818182,
+      "n_per_third": 11
+    },
+    "device": "cpu",
+    "device_name": "CPU",
+    "torch_version": "2.14.1+cpu",
+    "max_length": 128
+  }
+]

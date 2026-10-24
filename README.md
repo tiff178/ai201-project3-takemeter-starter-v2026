@@ -176,7 +176,7 @@ Without the label definitions (bare label names), the zero-shot baseline model d
 | 4. Consistency for labels | ≥ 0.80 | 0.933 | 0.933 | 0.933 | MET | 
 | 5. Model confidence is at least 85% | ≥ 0.85 | 0.900 | 1.000 | 1.000 | MET |
 
-### Metrics Spread Across Seeds 
+### Metrics Spread Across Seeds — Before
 
 | Measure | Seed 42 | Seed 7 | Seed 2024 | Spread |
 |---|---|---|---|---|
@@ -247,26 +247,31 @@ This miss was likely caused by severe class sparsity combined with an inconsiste
 
 ## The Improvement
 
-**What I changed:**
+**What I changed:** I added 26 new, clean posts to the thinnest class (`pro_tournaments`) in `labels.csv`, increasing its total count from 44 posts (22.0%) to 70 posts (31.0%). All added posts focus specifically on BWF World Tour events, tournament brackets, Olympic qualification, match results, and player rankings, without introducing ambiguous equipment keywords. Using Gemini LLM Notebook to extract 26 new, clean posts from `r/badminton` focusing on posts within `pro_tournaments` and reading through each one to confirm it clearly fits the label.
 
-**Which diagnosis pointed at it:**
+**Which diagnosis pointed at it:** My diagnosis for Criterion 2 identified that having only 44 total posts, left just 7 examples in the 15% held-out test split, giving the model zero margin for error when random seed splits sampled ambiguous posts. Increasing the sample size of `pro_tournaments` stabilizes test evaluation and prevents minority-class metric collapse. Furthermore, Criterion 1 exhibited severe evaluation instability (a 0.167 spread across seeds) because the dataset was too small and lopsided to produce a consistent measure.
 
 ### Run Log — After
 
 | Criterion | Target | Seed 42 | Seed 7 | Seed 2024 | Verdict |
 |---|---|---|---|---|---|
-| 1.  |  |  |  |  |  |
-| 2.  |  |  |  |  |  |
-| 3.  |  |  |  |  |  |
-| 4.  |  |  |  |  |  |
-| 5.  |  |  |  |  |  |
+| 1. Overall accuracy at least 70% | ≥ 0.70 | 0.882 | 0.912 | 0.912 | MET | 
+| 2. Per-label performance must achieve an F1 score of at least 60% (`pro_tournaments`) | ≥ 0.60 | 0.900 | 0.909 | 0.909 | MET |
+| 3. Label counts should be balanced | 15%-50% | 31.0%-35.8% | 31.0%-35.8% | 31.0%-35.8% | MET |
+| 4. Consistency for labels | ≥ 0.80 | 0.933 | 0.933 | 0.933 | MET | 
+| 5. Model confidence is at least 85% | ≥ 0.85 | 0.909 | 1.000 | 1.000 | MET |
 
-**Did it help, and how do I know:**
+### Metrics Spread Across Seeds — After
 
-<!-- If it didn't, say so. Relabelling that didn't help is a genuinely
-     interesting result and earns full credit. -->
+| Measure | Seed 42 | Seed 7 | Seed 2024 | Spread |
+|---|---|---|---|---|
+| Overall accuracy | 0.882 | 0.912 | 0.912 | 0.029 |
+| Macro F1 | 0.885 | 0.912 | 0.912 | 0.027 |
+| F1 — `pro_tournaments` | 0.900 | 0.909 | 0.909 | 0.009 |
+| F1 — `gear_equipment` | 0.846 | 0.909 | 0.870 | 0.063 |
+| F1 — `technique_training` | 0.909 | 0.917 | 0.957 | 0.047 |
 
-
+**Did it help, and how do I know:** Yes, adding more examples to my thinnest label (`pro_tournaments`) helped, stabilizing the dataset and allowing both Criterion 1 and Criterion 2 verdicts to be MET across all three seeds. The accuracy spread across seeds dropped to just 0.029 (well under the 10 point threshold) while overall accuracy increased to a consistent 88–91%, demonstrating that the dataset is now stable enough to produce a consistent, reliable measure (Criterion 1 MET). This also eliminated the minority-class collapse on Criterion 2: on Seed 7, the F1 score for `pro_tournaments` surged from 0.000 to 0.909, with an F1 spread of only 0.009 across all three runs (0.900, 0.909, 0.909). By increasing `pro_tournaments` from 44 to 70 posts, the 15% held-out test split grew from 7 to 11 examples, removing the zero margin for error sensitivity that previously allowed a couple of ambiguous boundary posts to zero out performance and ensuring that every label easily cleared the 0.60 F1 floor (with the lowest per-label F1 across all seeds and classes being 0.846).
 
 ---
 
@@ -283,19 +288,6 @@ learned:**
 
 
 <!-- ═════════════════════════════════════════════════════════════════════
-
-     SUBMISSION CHECKLIST — unit 5
-
-       [ ] criteria.md has five numbered criteria, each naming a NUMBER
-       [ ] Each has a reason underneath tied to your data or taxonomy
-       [ ] labels.csv: at least 150 rows, text/label/note, ONE file not split
-       [ ] No label above 70%
-       [ ] All five unit 5 sections have real content
-       [ ] Label Taxonomy includes the decision rule for your hardest boundary
-       [ ] The Dataset includes three hard cases
-       [ ] results.json and test_split.csv committed (the notebook does this)
-       [ ] At least four new commits
-       [ ] Repository URL submitted — WRITE IT DOWN
 
      SUBMISSION CHECKLIST — unit 6
 
