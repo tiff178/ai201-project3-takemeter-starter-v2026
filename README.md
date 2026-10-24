@@ -143,7 +143,7 @@ TakeMeter looks at posts in the `r/badminton` public community forum. Each post 
 - *What came back:* 4 lines in my `labels.csv` data had an extra comma (,) in the text
 - *What I changed:* I added quotations (" ") to those 4 lines surrounding the text, so it wouldn't mess up the labels and note within the `labels.csv` data. This is necessary to fix before splitting the data. 
 
-**Pre-labelling disclosure:** I labeled 20 posts manually and had AI (Gemini LLM Notebook) help extract the text from the posts and label the rest following the parameters. 
+**Pre-labelling disclosure:** I labeled 20 posts manually and had AI (Gemini LLM Notebook) help extract the text from the posts and label the rest following the parameters. Used AI (Gemini LLM Notebook) to extract text and label another 26 posts to fix my thinnest label issue. 
 
 ---
 # Unit 6
@@ -277,36 +277,10 @@ This miss was likely caused by severe class sparsity combined with an inconsiste
 
 ## What's Still Broken
 
-<!-- For each criterion still missed: what you'd do, and why you stopped. -->
-
-
+All five criteria were MET after adding more examples to my thinnest label (`pro_tournaments`), so nothing is failing. One weakness is in the criterion itself: setting a 15% minimum (30 posts) was too permissive for a 200-example dataset, as it allowed `pro_tournaments` to pass even while its label counts were small (7 examples in the test split) and caused severe evaluation instability. A stricter criterion requiring between 25%-45% representation and no fewer than 8 examples is necessary to prevent minority-class metric collapse.
 
 **The gap between what I meant my labels to capture and what the model
-learned:**
-<!-- Two sentences. Your confusion matrix is the evidence. -->
-
-
-
-<!-- ═════════════════════════════════════════════════════════════════════
-
-     SUBMISSION CHECKLIST — unit 6
-
-       [ ] Baseline vs. Trained table, with your prediction written beforehand
-       [ ] Run Log — Before, five criteria across three seeds
-       [ ] Confusion matrix TYPED AS A MARKDOWN TABLE
-       [ ] A verdict on every criterion
-       [ ] A diagnosis for every miss, using the agreement report as evidence
-       [ ] Agreement Report with every disagreement adjudicated
-       [ ] One improvement, with Run Log — After
-       [ ] What's Still Broken
-       [ ] results_three_seeds_before.json, results_three_seeds_after.json,
-           baseline_results.json and
-           agreement_results.json committed
-       [ ] At least four new commits
-       [ ] The SAME repository URL as last unit
-
-     Do not delete and recreate this repository.
-     ═════════════════════════════════════════════════════════════════════ -->
+learned:** While I expected `gear_equipment` and `technique_training` to be my hardest boundary, the confusion matrix shows they separated cleanly (only 1 mutual error in each direction), with the primary lingering error of 2 real `pro_tournaments` posts misclassified as `gear_equipment` (and 0 in reverse). This reveals the model still relies on surface lexical cues rather than underlying intent, reflexively classifying tournament posts as gear equipment instead. 
 
 ---
 
